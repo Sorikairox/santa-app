@@ -72,12 +72,31 @@ $ npm run start:prod
 # unit tests
 $ npm run test
 
+
+# integration tests
+$ npm run test:integration
+
 # e2e tests
 $ npm run test:e2e
 
 # test coverage
 $ npm run test:cov
 ```
+
+##Architecture choice
+
+### Repository vs Store 
+
+For the test's sake, I decided to create a `IStore` without data persistence after being retrieved. However, in real life situation with a Database, I would have created a `IRepository` and set a `sent` attribute to true.
+
+### SantaRequestSender and Sender abstraction
+
+Right now, we are using email to send Santa's request via `EmailSender`. Maybe the specs change at some point and we need to send them via websocket or phone text message or any other mean. <br><br>
+We will simply have to implement a `PhoneTextSender` class, and change `SantaRequestSender` parent class for it to work without any change to `SantaRequestSender` usage.
+
+
+
+
 
 ## License
 

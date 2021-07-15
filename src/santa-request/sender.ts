@@ -1,4 +1,4 @@
-import { EmailSender } from '../library/sender/email';
+import { EmailSender } from '../library/email/sender';
 import { SantaRequest } from './class';
 
 export class SantaRequestSender extends EmailSender<SantaRequest> {

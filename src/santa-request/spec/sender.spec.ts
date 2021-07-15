@@ -5,7 +5,7 @@ describe('Santa Request Sender', () => {
   let sender: SantaRequestSender;
 
   beforeAll(() => {
-    sender = new SantaRequestSender();
+    sender = new SantaRequestSender(null, null);
   });
 
   describe('createMessageFromObjectArray', () => {

@@ -2,7 +2,6 @@ import { SantaRequestCronService } from '../cron';
 import { SantaRequestStore } from '../store';
 import { SantaRequestSender } from '../sender';
 import SpyInstance = jest.SpyInstance;
-import Spy = jasmine.Spy;
 
 describe('Santa Request Cron', () => {
   let cron: SantaRequestCronService;
@@ -10,7 +9,7 @@ describe('Santa Request Cron', () => {
   let sender: SantaRequestSender;
   beforeEach(() => {
     store = new SantaRequestStore();
-    sender = new SantaRequestSender();
+    sender = new SantaRequestSender(null, null);
 
     cron = new SantaRequestCronService(store, sender);
   });
