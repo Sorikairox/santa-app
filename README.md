@@ -24,8 +24,6 @@ This project is an exercice for ALJ. It is made with [Nest](https://github.com/n
 <li>Last but not least. I like it</li>
 </ul>
 
-// TODO: check the text isn't more than 100chars before submitting
-
 ## Installation
 
 ```bash
