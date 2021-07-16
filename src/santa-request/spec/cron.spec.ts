@@ -25,7 +25,7 @@ describe('Santa Request Cron', () => {
         createMessageSpy.mockClear();
     });
     it ('get store content, create message and call sendMessage if not empty', async () => {
-      getAllSpy = jest.spyOn(store, 'getAllAndEmptyStore').mockImplementation(async () => [{ childName: 'name', childAddress: 'address', content: 'content'}]);
+      getAllSpy = jest.spyOn(store, 'getAllAndEmptyStore').mockImplementation(async () => [{ childUsername: 'name', childAddress: 'address', content: 'content'}]);
       sendMessageSpy = jest.spyOn(sender, 'sendMessage').mockImplementation(async () => {});
       createMessageSpy = jest.spyOn(sender, 'createMessageFromObjectArray').mockImplementation(() => 'message');
       await cron.sendStoreContent();

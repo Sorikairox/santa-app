@@ -1,5 +1,5 @@
 export class SantaRequest {
-  childName: string;
+  childUsername: string;
   childAddress: string;
   content: string;
 }

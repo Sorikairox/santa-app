@@ -7,7 +7,7 @@ export class SantaRequestSender extends EmailSender<SantaRequest> {
     let messageContent = '';
 
     requestArray.forEach((request) => {
-      messageContent += `Child name: ${request.childName}\n
+      messageContent += `Child name: ${request.childUsername}\n
       Child address: ${request.childAddress} \n
       Child request: ${request.content}\n`
     });

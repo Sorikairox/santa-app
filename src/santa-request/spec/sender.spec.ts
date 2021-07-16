@@ -14,7 +14,7 @@ describe('Santa Request Sender', () => {
           {
             content: '1st content',
             childAddress: 'nice address',
-            childName: 'cool name'
+            childUsername: 'cool name'
           }
         ];
         let message = sender.createMessageFromObjectArray(requestArray);
