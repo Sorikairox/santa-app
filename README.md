@@ -35,14 +35,14 @@ $ npm install
 ## Running the app
 
 ```bash
-# development
+# prod
 $ npm run start
 
 # watch mode
-$ npm run start:dev
+$ npm run start:watch
 
-# production mode
-$ npm run start:prod
+# dev mode
+$ npm run start:dev
 ```
 
 ## Test
@@ -50,7 +50,6 @@ $ npm run start:prod
 ```bash
 # unit tests
 $ npm run test
-
 
 # integration tests
 $ npm run test:integration
