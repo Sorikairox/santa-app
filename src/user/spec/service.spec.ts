@@ -1,4 +1,3 @@
-import SpyInstance = jest.SpyInstance;
 import { UserService } from '../service';
 import { HttpService } from '@nestjs/axios';
 import { of } from 'rxjs';
@@ -14,10 +13,10 @@ describe('User Service Unit', () => {
   });
   describe('getUserList', () => {
     it ('return user api returned value', async () => {
-      let getSpy = jest.spyOn(httpService, 'get').mockImplementation(() => of({
+      const getSpy = jest.spyOn(httpService, 'get').mockImplementation(() => of({
         data : [{fakeUser: true}]
       }) as any);
-      let res = await service.getUserList()
+      const res = await service.getUserList()
       expect(getSpy).toHaveBeenCalled();
       expect(res).toEqual([{fakeUser: true}]);
     });
@@ -42,7 +41,7 @@ describe('User Service Unit', () => {
       }) as any);
     })
     it ('return user with given username', async () => {
-      let res = await service.getUserByUsername('charlie.brown')
+      const res = await service.getUserByUsername('charlie.brown')
       expect(getSpy).toHaveBeenCalled();
       expect(res).toEqual({
         "username": "charlie.brown",
@@ -50,7 +49,7 @@ describe('User Service Unit', () => {
       });
     });
     it ('throw when no user with username', async () => {
-      let res = service.getUserByUsername('cannotfindit')
+      const res = service.getUserByUsername('cannotfindit')
       expect(getSpy).toHaveBeenCalled();
       await expect(res).rejects.toThrow(UserNotFound);
     });
@@ -78,7 +77,7 @@ describe('User Service Unit', () => {
       }) as any);
     });
     it ('return user profile ', async () => {
-      let res = await service.getProfileByUserId('730b0412-72c7-11e9-a923-1681be663d3e')
+      const res = await service.getProfileByUserId('730b0412-72c7-11e9-a923-1681be663d3e')
       expect(getSpy).toHaveBeenCalled();
       expect(res).toEqual({
         "userUid": "730b0412-72c7-11e9-a923-1681be663d3e",
@@ -87,7 +86,7 @@ describe('User Service Unit', () => {
       });
     });
     it ('throw when no profile with username', async () => {
-      let res = service.getProfileByUserId('fakeuuid')
+      const res = service.getProfileByUserId('fakeuuid')
       expect(getSpy).toHaveBeenCalled();
       await expect(res).rejects.toThrow(ProfileNotFound);
     });

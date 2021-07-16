@@ -1,7 +1,6 @@
 import { EmailSender } from '../sender';
 import { ConfigService } from '@nestjs/config';
 import { EmailClientService } from '../client';
-import SpyInstance = jest.SpyInstance;
 
 jest.mock('../client');
 
@@ -16,14 +15,13 @@ describe('Email Sender', () => {
   });
 
   describe('sendMessage', () => {
-    let emailSendSpy: SpyInstance;
     beforeAll(() => {
-      emailSendSpy = jest.spyOn(emailClient, 'sendEmail').mockImplementation(async () => {
+      jest.spyOn(emailClient, 'sendEmail').mockImplementation(async () => {
         return { emailSent: true };
       })
     });
     it('return emailClient return value', async () => {
-      let ret = await emailSender.sendMessage('message');
+      const ret = await emailSender.sendMessage('message');
       expect(ret).toEqual({ emailSent: true });
     });
   });

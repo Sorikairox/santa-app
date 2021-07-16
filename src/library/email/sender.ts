@@ -1,5 +1,4 @@
 import { Sender } from '../sender/interface';
-import { createTransport, Transporter } from 'nodemailer';
 import { ConfigService } from '@nestjs/config';
 import { Injectable } from '@nestjs/common';
 import { EmailClientService } from './client';
@@ -22,5 +21,5 @@ export class EmailSender<T> implements Sender<T> {
 
   createMessageFromObjectArray(objArray: Array<T>): string {
     throw new Error('MethodShouldBeOverWritten');
-  };
+  }
 }

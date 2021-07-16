@@ -1,4 +1,4 @@
-import { Global, Inject, Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { createTransport, Transporter } from 'nodemailer';
 
 @Injectable()
@@ -10,6 +10,6 @@ export class EmailClientService {
   }
 
   async sendEmail(from: string, to: string, subject: string, text: string, html?: string) {
-    return this.transporter.sendMail({ from, to, subject, text });
+    return this.transporter.sendMail({ from, to, subject, text, html });
   }
 }

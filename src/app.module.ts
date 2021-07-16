@@ -3,7 +3,6 @@ import { ConfigModule } from '@nestjs/config';
 import { EmailModule } from './library/email/module';
 import { ScheduleModule } from '@nestjs/schedule';
 import { SantaRequestModule } from './santa-request/module';
-import { HttpModule } from '@nestjs/axios';
 
 @Module({
   imports: [ConfigModule.forRoot({

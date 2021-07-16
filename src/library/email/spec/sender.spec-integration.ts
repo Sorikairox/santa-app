@@ -5,7 +5,6 @@ import { EmailModule } from '../module';
 
 describe('Email Sender Integration', () => {
   let emailSender: EmailSender<any>;
-  let configService: ConfigService;
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
       imports: [ConfigModule.forRoot(), EmailModule.register({
@@ -22,12 +21,11 @@ describe('Email Sender Integration', () => {
     }).compile();
 
     emailSender = app.get<EmailSender<any>>(EmailSender);
-    configService = app.get<ConfigService>(ConfigService);
   });
 
   describe('sendMessage', () => {
     it('send and return message via nodemailer', async () => {
-      let ret = await emailSender.sendMessage('message');
+      const ret = await emailSender.sendMessage('message');
       expect(ret).toBeDefined();
     });
   });
