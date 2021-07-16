@@ -63,6 +63,12 @@ $ npm run test:cov
 
 ## Architecture choice
 
+### CSRV ?
+
+I did not want to create a `Single-Page-Application (SPA)`  to display different page, I opted for `Server-Side-Rendering (SSR)` after building the whole API.<br>
+
+Therefore, the end result is built with a `Controller-Service-Repository-View` pattern.
+
 ### Repository vs Store 
 
 For the test's sake, I decided to create a `IStore` without data persistence after being retrieved. However, in real life situation with a Database, I would have created a `IRepository` and set a `sent` attribute to true.
@@ -71,6 +77,22 @@ For the test's sake, I decided to create a `IStore` without data persistence aft
 
 Right now, we are using email to send Santa's request via `EmailSender`. Maybe the specs change at some point and we need to send them via websocket or phone text message or any other mean. <br><br>
 We will simply have to implement a `PhoneTextSender` class, and change `SantaRequestSender` parent class for it to work without any change to `SantaRequestSender` usage.
+
+### Commit style
+
+I try to stick to [Karma Convention](http://karma-runner.github.io/6.3/dev/git-commit-msg.html) spec : <br>
+
+```
+<type>(scope): <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+### Test suites
+
+Tests cover 90+% of code that is not related to view rendering or Nest configuration.
 
 ## Isn't it overkill ?
 
