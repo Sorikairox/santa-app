@@ -94,7 +94,7 @@ Tests cover 90+% of code that is not related to view rendering or Nest configura
 
 ### No comments in code ???
 
-A well written code does not need comments to be understood excepted for complexes business algorithms. If you don't understand my code by reading it and are unsure of what it's doing, then I failed and I'm sorry.
+A well written code does not need comments to be understood excepted for complexes business algorithms. If you don't understand my code by reading it or/and are unsure of what it's doing, then I failed and I'm sorry.
 
 ## Isn't it overkill ?
 
