@@ -98,7 +98,7 @@ A well written code does not need comments to be understood excepted for complex
 
 ## Isn't it overkill ?
 
-We could discuss the fact that this is a lot of files and code for a simple challenge, and maybe a lot of Yagni [You Aren't Gonna Need It](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it). <br>
+We could discuss the fact that this is a lot of files and code for a simple challenge, and maybe a lot of [You Aren't Gonna Need It](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it). <br>
 However I decided that it was better to show that I can create clean code with abstractions, test, relevant design pattern, rather than showing that I can do it quick and dirty.<br>
 
 
@@ -136,5 +136,5 @@ Email sender should be set as do_not_reply@northpole.com, and sent to santa@nort
   
 ## License
 
-Nest framework itself is [MIT licensed](LICENSE).<br>
-This project code is [unlicensed](LICENSE)
+Nest framework itself is MIT licensed.<br>
+This project code is unlicensed (LICENSE)
