@@ -7,7 +7,7 @@ export class InMemoryStore<T> implements IStore {
   }
 
   async getAllAndEmptyStore(): Promise<Array<T>> {
-    let actualStore = this.store.splice(0);
+    const actualStore = this.store.splice(0);
     this.store = [];
     return actualStore;
   }
