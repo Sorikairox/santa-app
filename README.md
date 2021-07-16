@@ -10,7 +10,7 @@
 - [Tips and detailed instructions](##tips-and-detailed-instructions)<br>
 - [License](##license)
 
-##Description
+## Description
 
 This project is an exercice for ALJ. It is made with [Nest](https://github.com/nestjs/nest) framework for the following reasons : 
 
@@ -26,13 +26,13 @@ This project is an exercice for ALJ. It is made with [Nest](https://github.com/n
 
 // TODO: check the text isn't more than 100chars before submitting
 
-##Installation
+## Installation
 
 ```bash
 $ npm install
 ```
 
-##Running the app
+## Running the app
 
 ```bash
 # development
@@ -45,7 +45,7 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-##Test
+## Test
 
 ```bash
 # unit tests
@@ -62,24 +62,24 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-##Architecture choice
+## Architecture choice
 
-###Repository vs Store 
+### Repository vs Store 
 
 For the test's sake, I decided to create a `IStore` without data persistence after being retrieved. However, in real life situation with a Database, I would have created a `IRepository` and set a `sent` attribute to true.
 
-###SantaRequestSender and Sender abstraction
+### SantaRequestSender and Sender abstraction
 
 Right now, we are using email to send Santa's request via `EmailSender`. Maybe the specs change at some point and we need to send them via websocket or phone text message or any other mean. <br><br>
 We will simply have to implement a `PhoneTextSender` class, and change `SantaRequestSender` parent class for it to work without any change to `SantaRequestSender` usage.
 
-##Isn't it overkill ?
+## Isn't it overkill ?
 
 We could discuss the fact that this is a lot of files and code for a simple challenge, and maybe a lot of Yagni [You Aren't Gonna Need It](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it). <br>
 However I decided that it was better to show that I can create clean code with abstractions, test, relevant design pattern, rather than showing that I can do it quick and dirty.<br>
 
 
-##Objectives overview:
+## Objectives overview:
 
 The webapp should display a form for children to enter their id and a free text message to santa.
 
@@ -100,7 +100,7 @@ Every 15seconds, the server should send an email with information on all pending
 
 Email sender should be set as do_not_reply@northpole.com, and sent to santa@northpole.com
 
-##Tips and detailed instructions:
+## Tips and detailed instructions:
 
 - somebody started to work on the app, but left it unfinished. It is up to you to complete it. You are allowed to restart from scratch if you prefer.
 - the look and feel of the application for this challenge is not the priority. The pages/email do not need to look good, as long as they convey the information effectively.
@@ -111,7 +111,7 @@ Email sender should be set as do_not_reply@northpole.com, and sent to santa@nort
   This will give you an account (take note of your username and pwd if you need to re-logon later) and smtp server (actual emails do not get delivered).\
   Go to https://ethereal.email/messages to see the emails that have been received by the smtp server.
   
-##License
+## License
 
 Nest framework itself is [MIT licensed](LICENSE).<br>
 This project code is [unlicensed](LICENSE)
