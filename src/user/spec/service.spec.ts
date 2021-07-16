@@ -2,6 +2,7 @@ import SpyInstance = jest.SpyInstance;
 import { UserService } from '../service';
 import { HttpService } from '@nestjs/axios';
 import { of } from 'rxjs';
+import { ProfileNotFound, UserNotFound } from '../errors';
 
 describe('User Service Unit', () => {
   let service: UserService;
@@ -48,10 +49,10 @@ describe('User Service Unit', () => {
         "uid": "730b0412-72c7-11e9-a923-1681be663d3e"
       });
     });
-    it ('return null when no user with username', async () => {
-      let res = await service.getUserByUsername('cannotfindit')
+    it ('throw when no user with username', async () => {
+      let res = service.getUserByUsername('cannotfindit')
       expect(getSpy).toHaveBeenCalled();
-      expect(res).toEqual(null);
+      await expect(res).rejects.toThrow(UserNotFound);
     });
   });
 
@@ -77,7 +78,6 @@ describe('User Service Unit', () => {
       }) as any);
     });
     it ('return user profile ', async () => {
-
       let res = await service.getProfileByUserId('730b0412-72c7-11e9-a923-1681be663d3e')
       expect(getSpy).toHaveBeenCalled();
       expect(res).toEqual({
@@ -85,6 +85,11 @@ describe('User Service Unit', () => {
         "address": "219-1130, Ikanikeisaiganaibaai, Musashino-shi, Tokyo",
         "birthdate": "2017/12/05"
       });
+    });
+    it ('throw when no profile with username', async () => {
+      let res = service.getProfileByUserId('fakeuuid')
+      expect(getSpy).toHaveBeenCalled();
+      await expect(res).rejects.toThrow(ProfileNotFound);
     });
   });
 });

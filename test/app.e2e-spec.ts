@@ -1,24 +1,46 @@
-import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
-import { AppModule } from '../src/app.module';
+import { bootstrap } from '../src/bootstrap';
 
 describe('AppController (e2e)', () => {
   let app: INestApplication;
 
-  beforeEach(async () => {
-    const moduleFixture: TestingModule = await Test.createTestingModule({
-      imports: [AppModule],
-    }).compile();
-
-    app = moduleFixture.createNestApplication();
-    await app.init();
+  beforeAll(async () => {
+    app = await bootstrap();
   });
 
-  it('/ (GET)', () => {
-    return request(app.getHttpServer())
-      .get('/')
-      .expect(200)
-      .expect('Hello World!');
+  afterAll(() => {
+    app.close();
+  });
+
+  describe('/ (POST)', () => {
+    it('returns 201 for < 10 years old child account', () =>
+    {
+      return request(app.getHttpServer())
+        .post('/')
+        .send({
+          username: 'charlie.brown',
+          request: 'a nice request'
+        })
+        .expect(201);
+    });
+    it('returns 400 for unknown account', () => {
+      return request(app.getHttpServer())
+        .post('/')
+        .send({
+          username: 'charlerrrrrrrrrrrrrie.brown',
+          request: 'a nice request'
+        })
+        .expect(400);
+    });
+    it ('returns 400 for too old person account', () => {
+      return request(app.getHttpServer())
+        .post('/')
+        .send({
+          username: 'james.bond',
+          request: 'a nice request'
+        })
+        .expect(400);
+    });
   });
 });

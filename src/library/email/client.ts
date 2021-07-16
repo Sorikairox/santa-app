@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Global, Inject, Injectable } from '@nestjs/common';
 import { createTransport, Transporter } from 'nodemailer';
 
 @Injectable()

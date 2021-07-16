@@ -6,5 +6,5 @@ export class User {
 export class UserProfile {
   userUid: string;
   address: string;
-  birthDate: string
+  birthdate: string
 }

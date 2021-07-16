@@ -9,7 +9,7 @@ export class SantaRequestCronService {
   constructor(private store: SantaRequestStore, private santaRequestSender: SantaRequestSender) {
   }
 
-  @Interval(1500)
+  @Interval(15000)
   async sendStoreContent(): Promise<void> {
     const requestArray = await this.store.getAllAndEmptyStore();
     if (requestArray.length > 0) {

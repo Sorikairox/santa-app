@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { EmailModule } from './library/email/module';
+import { ScheduleModule } from '@nestjs/schedule';
+import { SantaRequestModule } from './santa-request/module';
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
   imports: [ConfigModule.forRoot({
@@ -17,8 +18,10 @@ import { EmailModule } from './library/email/module';
         pass: process.env.MAIL_PASSWORD
       }
     }
-  )],
-  controllers: [AppController],
-  providers: [AppService],
+  ),
+  ScheduleModule.forRoot(),
+  SantaRequestModule],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
