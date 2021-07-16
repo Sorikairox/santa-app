@@ -1,14 +1,14 @@
 #Summary
 
-- [Description](##description)<br>
-- [Installation](##installation)<br>
-- [Running the app](##running-the-app)<br>
-- [Test](##test)<br>
-- [Architecture choice](##architecture-choice)<br>
-- [Isn't it overkill ?](##isn-t-it-overkill)<br>
-- [Objectives overview](##objectives-overview)<br>
-- [Tips and detailed instructions](##tips-and-detailed-instructions)<br>
-- [License](##license)
+- [Description](#description)<br>
+- [Installation](#installation)<br>
+- [Running the app](#running-the-app)<br>
+- [Test](#test)<br>
+- [Architecture choice](#architecture-choice)<br>
+- [Isn't it overkill ?](#isn-t-it-overkill)<br>
+- [Objectives overview](#objectives-overview)<br>
+- [Tips and detailed instructions](#tips-and-detailed-instructions)<br>
+- [License](#license)
 
 ## Description
 
