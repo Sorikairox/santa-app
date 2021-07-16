@@ -92,6 +92,10 @@ I try to stick to [Karma Convention](http://karma-runner.github.io/6.3/dev/git-c
 
 Tests cover 90+% of code that is not related to view rendering or Nest configuration.
 
+### No comments in code ???
+
+A well written code does not need comments to be understood excepted for complexes business algorithms. If you don't understand my code by reading it and are unsure of what it's doing, then I failed and I'm sorry.
+
 ## Isn't it overkill ?
 
 We could discuss the fact that this is a lot of files and code for a simple challenge, and maybe a lot of Yagni [You Aren't Gonna Need It](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it). <br>
