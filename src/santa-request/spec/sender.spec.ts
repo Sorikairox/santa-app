@@ -10,14 +10,14 @@ describe('Santa Request Sender', () => {
 
   describe('createMessageFromObjectArray', () => {
     it ('returns message with santa requests', () => {
-        let requestArray: Array<SantaRequest> = [
+        const requestArray: Array<SantaRequest> = [
           {
             content: '1st content',
             childAddress: 'nice address',
             childUsername: 'cool name'
           }
         ];
-        let message = sender.createMessageFromObjectArray(requestArray);
+        const message = sender.createMessageFromObjectArray(requestArray);
 
         expect(message).toEqual(`Child name: cool name\n
       Child address: nice address \n

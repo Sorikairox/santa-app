@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import { DynamicModule, Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { EmailClientService } from './client';

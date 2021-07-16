@@ -1,6 +1,8 @@
+/* istanbul ignore file */
+
 import { EmailSender } from '../sender';
 import { Test, TestingModule } from '@nestjs/testing';
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ConfigModule } from '@nestjs/config';
 import { EmailModule } from '../module';
 
 describe('Email Sender Integration', () => {

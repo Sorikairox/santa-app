@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import { Module } from '@nestjs/common';
 import { UserModule } from '../user/module';
 import { HttpModule } from '@nestjs/axios';
