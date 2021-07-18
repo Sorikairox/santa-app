@@ -48,6 +48,7 @@ describe('Santa Request Service Unit', () => {
       getAllSpy.mockClear();
       sendMessageSpy.mockClear();
       createMessageSpy.mockClear();
+      addToStoreSpy.mockClear();
     });
     it ('get store content, create message and call sendMessage if not empty', async () => {
       getAllSpy = jest.spyOn(store, 'getAllAndEmptyStore').mockImplementation(async () => [{ childUsername: 'name', childAddress: 'address', content: 'content'}]);
@@ -68,6 +69,20 @@ describe('Santa Request Service Unit', () => {
       expect(getAllSpy).toBeCalledTimes(1);
       expect(sendMessageSpy).toBeCalledTimes(0);
       expect(createMessageSpy).toBeCalledTimes(0);
+    });
+    it ('put request back in store if sendMessage fails', async () => {
+      addToStoreSpy = jest.spyOn(store, 'addToStore').mockImplementation(async () => {});
+      getAllSpy = jest.spyOn(store, 'getAllAndEmptyStore').mockImplementation(async () => [{ childUsername: 'name', childAddress: 'address', content: 'content'}, { childUsername: 'name', childAddress: 'address', content: 'content'}]);
+      sendMessageSpy = jest.spyOn(sender, 'sendMessage').mockImplementation(async () => {
+        throw new Error()
+      });
+
+      await service.sendStoreContent();
+
+      expect(getAllSpy).toBeCalledTimes(1);
+      expect(sendMessageSpy).toBeCalledTimes(1);
+      expect(createMessageSpy).toBeCalledTimes(1);
+      expect(addToStoreSpy).toBeCalledTimes(2);
     });
   });
 });

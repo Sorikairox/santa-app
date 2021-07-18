@@ -5,6 +5,7 @@ import * as moment from 'moment';
 import { Interval } from '@nestjs/schedule';
 import { SantaRequestSender } from './sender';
 import { UserTooOld } from './error/user-too-old';
+import { SantaRequest } from './class/SantaRequest';
 
 @Injectable()
 export class SantaRequestService {
@@ -28,7 +29,13 @@ export class SantaRequestService {
     const requestArray = await this.store.getAllAndEmptyStore();
     if (requestArray.length > 0) {
       const message = this.santaRequestSender.createMessageFromObjectArray(requestArray);
-      await this.santaRequestSender.sendMessage(message);
+      try {
+        await this.santaRequestSender.sendMessage(message);
+      } catch (e) {
+        await Promise.all(requestArray.map(async (r : SantaRequest) => {
+          await this.store.addToStore(r);
+        }));
+      }
     }
   }
 }
