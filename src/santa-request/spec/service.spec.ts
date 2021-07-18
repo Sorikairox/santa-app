@@ -2,8 +2,8 @@ import { SantaRequestStore } from '../store';
 import SpyInstance = jest.SpyInstance;
 import { SantaRequestService } from '../service';
 import { UserService } from '../../user/service';
-import { UserTooOld } from '../../user/errors';
 import { SantaRequestSender } from '../sender';
+import { UserTooOld } from '../errors';
 
 describe('Santa Request Service Unit', () => {
   let service: SantaRequestService;
