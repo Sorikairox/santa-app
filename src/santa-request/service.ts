@@ -4,7 +4,7 @@ import { UserService } from '../user/service';
 import * as moment from 'moment';
 import { Interval } from '@nestjs/schedule';
 import { SantaRequestSender } from './sender';
-import { UserTooOld } from './errors';
+import { UserTooOld } from './error/user-too-old';
 
 @Injectable()
 export class SantaRequestService {

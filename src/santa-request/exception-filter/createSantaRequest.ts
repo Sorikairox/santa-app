@@ -1,7 +1,8 @@
 import { ExceptionFilter, ArgumentsHost } from '@nestjs/common';
 import { Response } from 'express';
-import { ProfileNotFound, UserNotFound } from '../../user/errors';
-import { UserTooOld } from '../errors';
+import { UserNotFound } from '../../user/error/user-not-found';
+import { UserTooOld } from '../error/user-too-old';
+import { ProfileNotFound } from '../../user/error/profile-not-found';
 
 export class CreateSantaRequestFilter implements ExceptionFilter {
   catch(exception: unknown, host: ArgumentsHost) {

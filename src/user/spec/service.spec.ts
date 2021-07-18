@@ -1,7 +1,8 @@
 import { UserService } from '../service';
 import { HttpService } from '@nestjs/axios';
 import { of } from 'rxjs';
-import { ProfileNotFound, UserNotFound } from '../errors';
+import { UserNotFound } from '../error/user-not-found';
+import { ProfileNotFound } from '../error/profile-not-found';
 
 describe('User Service Unit', () => {
   let service: UserService;

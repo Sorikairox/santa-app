@@ -3,7 +3,7 @@ import SpyInstance = jest.SpyInstance;
 import { SantaRequestService } from '../service';
 import { UserService } from '../../user/service';
 import { SantaRequestSender } from '../sender';
-import { UserTooOld } from '../errors';
+import { UserTooOld } from '../error/user-too-old';
 
 describe('Santa Request Service Unit', () => {
   let service: SantaRequestService;

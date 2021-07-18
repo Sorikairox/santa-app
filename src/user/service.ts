@@ -2,8 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { lastValueFrom } from 'rxjs';
 import { User } from './class/User';
-import { ProfileNotFound, UserNotFound } from './errors';
+import { UserNotFound } from './error/user-not-found';
 import { UserProfile } from './class/UserProfile';
+import { ProfileNotFound } from './error/profile-not-found';
 
 @Injectable()
 export class UserService {
