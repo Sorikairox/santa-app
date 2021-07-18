@@ -61,6 +61,22 @@ $ npm run test:cov
 
 ## Architecture choice
 
+### Folders and files
+
+Each folder is a domain, that can itself contain sub-domain.<br>
+Each domain may have : 
+- A `controller(.ts)` to handle HTTP request
+- A `service(.ts)` that implements business logic
+- A `store(.ts)` to store domain entities (in memory or somewhere else)
+- A `sender(.ts)` to send store content via email (but could be any other means)
+- A `module(.ts)` for Nest DI 
+- A  `class` folder with the domain class
+- A `spec` folder with unit and integration test
+- An `exception-filter` folder with exception filters for `controller`'s method if necessary
+- An `error` folder with errors for `service`'s logic
+
+It makes it easy to see that `user` domain only has a service and no controller, which means it is not accessible via HTTP Request. Whereas `santa-request` domain is accessible.
+
 ### CSRV ?
 
 I did not want to create a `Single-Page-Application (SPA)`  to display different page, I opted for `Server-Side-Rendering (SSR)` after building the whole API.<br>
