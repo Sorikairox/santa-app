@@ -59,7 +59,7 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Architecture choice
+## Architecture choices
 
 ### Folders and files
 
