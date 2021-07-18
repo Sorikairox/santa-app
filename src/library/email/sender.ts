@@ -10,8 +10,8 @@ export abstract class EmailSender<T> implements Sender<T> {
 
   async sendMessage(message: string): Promise<any> {
     return this.emailClientService.sendEmail(
-      this.configService.get('MAIL_RECIPIENT'),
       this.configService.get('MAIL_SENDER'),
+      this.configService.get('MAIL_RECIPIENT'),
       'Request list',
       message
     );
