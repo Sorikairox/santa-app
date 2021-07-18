@@ -27,7 +27,7 @@ describe('Santa Request Service Unit', () => {
       await service.createSantaRequest('name', 'request');
       expect(addToStoreSpy).toHaveBeenCalled();
     });
-    it ('thow UserIsToolOld when user is >= 10', async () => {
+    it ('throw UserIsToolOld when user is >= 10', async () => {
       jest.spyOn(userService, 'getProfileByUserId').mockImplementation(async () => {
         return {
           birthdate : '1997/01/01'
