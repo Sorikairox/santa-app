@@ -12,7 +12,7 @@
 
 ## Description
 
-This project is an exercice for ALJ. It is made with [Nest](https://github.com/nestjs/nest) framework for the following reasons : 
+This project is an exercise for ALJ. It is made with [Nest](https://github.com/nestjs/nest) framework for the following reasons : 
 
 <ul>
 <li> Domain Driven Design
