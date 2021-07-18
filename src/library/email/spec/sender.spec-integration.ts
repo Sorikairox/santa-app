@@ -2,11 +2,14 @@
 
 import { EmailSender } from '../sender';
 import { Test, TestingModule } from '@nestjs/testing';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { EmailModule } from '../module';
+import { EmailClientService } from '../client';
 
 describe('Email Sender Integration', () => {
   let emailSender: EmailSender<any>;
+  let configService: ConfigService;
+  let emailClient: EmailClientService;
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
       imports: [ConfigModule.forRoot(), EmailModule.register({
@@ -19,10 +22,15 @@ describe('Email Sender Integration', () => {
         }
       })],
       controllers: [],
-      providers: [EmailSender],
+      providers: [],
     }).compile();
 
-    emailSender = app.get<EmailSender<any>>(EmailSender);
+    configService = app.get<ConfigService>(ConfigService);
+    emailClient = app.get<EmailClientService>(EmailClientService);
+    emailSender = new class extends EmailSender<any> {
+      createMessageFromObjectArray(objArray: Array<any>) {
+        return objArray.toString();
+    }}(configService, emailClient);
   });
 
   describe('sendMessage', () => {

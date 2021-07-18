@@ -11,7 +11,10 @@ describe('Email Sender', () => {
   beforeAll(async () => {
     configService = new ConfigService();
     emailClient = new EmailClientService(null);
-    emailSender = new EmailSender<any>(configService, emailClient);
+    emailSender = new class extends EmailSender<any> {
+      createMessageFromObjectArray(objArray: Array<any>) {
+        return objArray.toString();
+      }}(configService, emailClient)
   });
 
   describe('sendMessage', () => {
@@ -25,11 +28,4 @@ describe('Email Sender', () => {
       expect(ret).toEqual({ emailSent: true });
     });
   });
-
-  describe('createMessageFromObjectArray', () => {
-    it ('throw error because method should be overwritten and never used as is', () => {
-        expect( () => emailSender.createMessageFromObjectArray([])).toThrowError('MethodShouldBeOverWritten');
-    });
-  });
-
 });
