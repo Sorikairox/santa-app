@@ -1,5 +1,5 @@
 import { SantaRequestSender } from '../sender';
-import { SantaRequest } from '../class';
+import { SantaRequest } from '../class/SantaRequest';
 
 describe('Santa Request Sender', () => {
   let sender: SantaRequestSender;

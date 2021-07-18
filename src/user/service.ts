@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { lastValueFrom } from 'rxjs';
-import { User, UserProfile } from './class';
+import { User } from './class/User';
 import { ProfileNotFound, UserNotFound } from './errors';
+import { UserProfile } from './class/UserProfile';
 
 @Injectable()
 export class UserService {

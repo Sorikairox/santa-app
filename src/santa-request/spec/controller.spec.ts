@@ -7,7 +7,7 @@ describe('Santa Request Controller Unit', () => {
   let service: SantaRequestService;
   let res;
   beforeAll(() => {
-      service = new SantaRequestService(null, null);
+      service = new SantaRequestService(null, null, null);
       controller = new SantaRequestController(service);
       res = { render : () => {}};
   });

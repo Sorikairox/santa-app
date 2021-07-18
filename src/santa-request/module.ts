@@ -7,12 +7,11 @@ import { SantaRequestController } from './controller';
 import { SantaRequestService } from './service';
 import { SantaRequestStore } from './store';
 import { ScheduleModule } from '@nestjs/schedule';
-import { SantaRequestCronService } from './cron';
 import { SantaRequestSender } from './sender';
 
 @Module({
   imports: [HttpModule, UserModule, ScheduleModule],
   controllers: [SantaRequestController],
-  providers: [SantaRequestService, SantaRequestStore, SantaRequestCronService, SantaRequestSender],
+  providers: [SantaRequestService, SantaRequestStore, SantaRequestSender],
 })
 export class SantaRequestModule {}
